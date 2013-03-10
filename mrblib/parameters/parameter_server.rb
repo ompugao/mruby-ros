@@ -17,8 +17,8 @@ module ROS
       end
     end
 
-    def set_param(key)
-      code, message, value = @server.call("deleteParam", @caller_id, key)
+    def set_param(key,value)
+      code, message, value = @server.call("setParam", @caller_id, key, value)
       case code
       when 1
         return true
@@ -73,7 +73,6 @@ module ROS
       else
         return false
       end
-    end
     end
   end
 end
